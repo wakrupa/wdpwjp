@@ -11,4 +11,5 @@ def koperta(n):
                 wiersz += " "
         print(wiersz)
 
-koperta(4)
+podajbok = int(input("Podaj długość boku kwadratowej koperty: "))
+koperta(podajbok)
