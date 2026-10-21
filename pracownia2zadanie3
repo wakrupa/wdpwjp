@@ -6,11 +6,11 @@ def kolko(n):
     for i in range(n):
         wiersz = ""
         for j in range(n):
-            if (i - srodek) ** 2 + (j - srodek) ** 2 <= promien ** 2: # [(i - srodek) ** 2 + (j - srodek) ** 2] to obliczenie długości prostej prowadzącej z punktu (i, j) do środka koła. Wzięło się ono z wzoru Pitagorasa na przekątną trójkąta.
+            if (i - srodek) ** 2 + (j - srodek) ** 2 <= promien ** 2: # [(i - srodek) ** 2 + (j - srodek) ** 2] to obliczenie długości kwadratu prostej prowadzącej z punktu (i, j) do środka koła. Wzięło się ono z wzoru Pitagorasa na przekątną trójkąta.
                 wiersz += "#"
             else:
                 wiersz += " "
         print(wiersz)
 
-podajbok = int(input("Podaj bok kwadratu, w którym ma się zmieścić koło: "))
+podajbok = int(input("Podaj długość boku kwadratu, w którym ma się zmieścić koło (najlepiej niech będzie to liczba nieparzysta): "))
 kolko(podajbok)
