@@ -14,3 +14,26 @@ def kolko(n):
 
 podajbok = int(input("Podaj długość boku kwadratu, w którym ma się zmieścić koło (najlepiej niech będzie to liczba nieparzysta): "))
 kolko(podajbok)
+
+def kolkobalwanka(n, przesuniecie = 0):
+    srodek = (n - 1) / 2
+    promien = n / 2
+    for i in range(n):
+        wiersz = ""
+        for j in range(n):
+            if (i - srodek) ** 2 + (j - srodek) ** 2 <= promien ** 2: # [(i - srodek) ** 2 + (j - srodek) ** 2] to obliczenie długości kwadratu prostej prowadzącej z punktu (i, j) do środka koła. Wzięło się ono z wzoru Pitagorasa na przekątną trójkąta.
+                wiersz += "#"
+            else:
+                wiersz += " "
+        print(" " * przesuniecie + wiersz)
+
+def balwanek(kulagorna, kulasrodkowa, kuladolna):
+    kolkobalwanka(kulagorna, (kuladolna - kulagorna) // 2)
+    kolkobalwanka(kulasrodkowa, (kuladolna - kulasrodkowa) // 2 )
+    kolkobalwanka(kuladolna)
+
+g = int(input("Podaj rozmiar górnej kuli bałwana (liczba ma być nieparzysta i najmniejsza z trzech, które podasz): "))
+s = int(input("Podaj rozmiar środkowej kuli bałwana (liczba ma być nieparzysta i druga najmniejsza z trzech, które podasz): "))
+d = int(input("Podaj rozmiar dolnej kuli bałwana (liczba ma być nieparzysta i największa z trzech, które podasz): "))
+
+balwanek(g, s, d)
