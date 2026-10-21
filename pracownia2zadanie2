@@ -1,0 +1,14 @@
+# PRACOWNIA 2 ZADANIE 2
+
+def koperta(n):
+    bok = 2 * n + 1
+    for i in range(bok):
+        wiersz = ""
+        for j in range(bok):
+            if i == 0 or i == bok - 1 or j == 0 or j == bok - 1 or i == j or i + j == bok - 1:
+                wiersz += "*"
+            else:
+                wiersz += " "
+        print(wiersz)
+
+koperta(4)
