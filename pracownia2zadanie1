@@ -11,7 +11,7 @@ def szachownica(n, k):
                 wiersz += "#"
         print(wiersz)
 
-liczbapol = int(input("Podaj liczbę pól na szachownicy w każdym rzędzie: "))
+liczbapol = int(input("Podaj liczbę pól na szachownicy w każdym rzędzie (musi być parzysta): "))
 szerokoscpol = int(input("Podaj szerokość każdego z pól na szachownicy: "))
 
 szachownica(liczbapol // 2, szerokoscpol)
