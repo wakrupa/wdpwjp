@@ -1,0 +1,17 @@
+# PRACOWNIA 2 ZADANIE 1
+
+def szachownica(n, k):
+    bok = 2 * n * k
+    for i in range(bok):
+        wiersz = ""
+        for j in range(bok):
+            if (i // k + j // k) % 2 == 0:
+                wiersz += " "
+            else:
+                wiersz += "#"
+        print(wiersz)
+
+liczbapol = int(input("Podaj liczbę pól na szachownicy w każdym rzędzie: "))
+szerokoscpol = int(input("Podaj szerokość każdego z pól na szachownicy: "))
+
+szachownica(liczbapol // 2, szerokoscpol)
