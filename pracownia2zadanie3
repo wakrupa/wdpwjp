@@ -1,0 +1,16 @@
+# PRACOWNIA 2 ZADANIE 3
+
+def kolko(n):
+    srodek = (n - 1) / 2
+    promien = n / 2
+    for i in range(n):
+        wiersz = ""
+        for j in range(n):
+            if (i - srodek) ** 2 + (j - srodek) ** 2 <= promien ** 2: # [(i - srodek) ** 2 + (j - srodek) ** 2] to obliczenie długości prostej prowadzącej z punktu (i, j) do środka koła. Wzięło się ono z wzoru Pitagorasa na przekątną trójkąta.
+                wiersz += "#"
+            else:
+                wiersz += " "
+        print(wiersz)
+
+podajbok = int(input("Podaj bok kwadratu, w którym ma się zmieścić koło: "))
+kolko(podajbok)
