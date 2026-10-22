@@ -1,0 +1,22 @@
+# PRACOWANIA 3 ZADANIE 1
+
+def czy_pierwsza(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n: # Sprawdza kolejne dzielniki liczby n
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+def czy_szczesliwa(n):
+    return "777" in str(n)
+
+wynik = []
+for liczba in range(1, 100001):
+    if czy_pierwsza(liczba) and czy_szczesliwa(liczba):
+        wynik.append(liczba)
+
+print(f"Szczęśliwe liczby z zakresu od 1 do 100000 to: {", ".join(str(i) for i in wynik)}.")
+print(f"Szczęśliwych liczb w tym zakresie jest łącznie {len(wynik)}.")
