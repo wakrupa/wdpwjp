@@ -1,0 +1,16 @@
+# LISTA 3 ZADANIE 3
+
+def usun_w_nawiasach(s):
+    w_nawiasie = False
+    wynik = ""
+    for znak in s:
+        if znak == "(":
+            w_nawiasie = True
+        elif znak == ")":
+            w_nawiasie = False
+        else:
+            if w_nawiasie == False:
+                wynik += znak
+    return wynik
+
+print(usun_w_nawiasach("To jest zadanie numer 3 (z listy 3). Było ono całkiem łatwe (łatwiejsze niż zadanie 2)!"))
