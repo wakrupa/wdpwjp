@@ -1,0 +1,19 @@
+# PRACOWNIA 3 ZADANIE 4
+
+import turtle
+import math
+
+bok = 100
+for i in range(4):
+    turtle.forward(bok)
+    turtle.left(90)
+
+for i in range(7):
+    turtle.forward(bok / 2)
+    turtle.left(45)
+    for j in range(4):
+        turtle.forward(bok / 2 * math.sqrt(2))
+        turtle.left(90)
+    bok = bok / 2 * math.sqrt(2)
+
+turtle.done()
