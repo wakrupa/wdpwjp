@@ -1,4 +1,4 @@
-# LISTA 3 ZADANIE 2
+# PRACOWNIA 3 ZADANIE 2
 
 def czy_pierwsza(n):
     if n < 2:
