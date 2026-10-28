@@ -1,4 +1,4 @@
-# LISTA 3 ZADANIE 3
+# PRACOWNIA 3 ZADANIE 3
 
 def usun_w_nawiasach(s):
     w_nawiasie = False
