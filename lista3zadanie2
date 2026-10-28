@@ -1,0 +1,38 @@
+# LISTA 3 ZADANIE 2
+
+def czy_pierwsza(n):
+    if n < 2:
+        return False
+    i = 2
+    while i * i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+from itertools import product
+
+def generuj_kandydatow(liczba_cyfr, ile_siodemek):
+    wynik = set() # Tworzy pusty zbiór (nieprzechowujący duplikatów).
+    blok = "7" * ile_siodemek
+    wolne_miejsca = liczba_cyfr - ile_siodemek
+    for start_bloku in range(wolne_miejsca + 1): # Pętla po wszystkich możliwych miejscach startu bloku siódemek.
+        for cyfry in product("0123456789", repeat = wolne_miejsca):
+            napis = "".join(cyfry) # Zmienia krotkę, która wyszła z poprzedniego polecenia na napis (np. ("4", "1", "9" ) zmieni na "419").
+            lewa = napis[:start_bloku] # Wycina fragment napisu przed start_bloku (np. gdy start_bloku = 2, to fragment napisu po lewej będzie znajdywał się na miejscach 0 oraz 1).
+            prawa = napis [start_bloku:]
+            liczba = lewa + blok + prawa
+            if liczba[0] != "0": # Odrzuca liczby zaczynające się od 0 (bo miałyby wtedy za mało cyfr).
+                wynik.add(int(liczba)) # .add() dodaje do zbioru.
+    return wynik
+
+liczba_cyfr = 10
+ile_siodemek = 7
+
+kandydaci = generuj_kandydatow(liczba_cyfr, ile_siodemek)
+hiperszczesliwe_pierwsze = []
+for liczba in kandydaci:
+    if czy_pierwsza(liczba):
+        hiperszczesliwe_pierwsze.append(liczba)
+
+print(f"Dziesięciocyfrowych liczb pierwszych hiperszczęśliwych jest {len(hiperszczesliwe_pierwsze)}.")
