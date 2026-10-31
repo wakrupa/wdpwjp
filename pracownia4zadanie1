@@ -1,0 +1,37 @@
+# PRACOWNIA 4 ZADANIE 1
+
+import turtle
+import random
+
+bok = 20
+bok2 = 20
+
+def kwadrat(bok):
+    czerwony = random.random() # Losuje liczbę od o do 1.
+    zielony = random.random()
+    niebieski = random.random()
+    turtle.fillcolor(czerwony, zielony, niebieski) # Ustawia kolor wypełnienia z trzech podanych składowych.
+    turtle.pendown()
+    turtle.begin_fill() # Zaczyna kształt, który ma zostać wypełniony kolorem.
+    for i in range(4):
+        turtle.forward(bok)
+        turtle.left(90)
+    turtle.end_fill() # Kończy kształt i wypełnia go kolorem.
+    turtle.penup()
+
+turtle.tracer(0) # Wyłącza animację.
+turtle.hideturtle()
+turtle.penup()
+turtle.goto(-bok2 * bok / 2, -bok2 * bok / 2) # Ustawia turtle w lewym dolnym rogu siatki tak, aby rysunek był symetryczny względem punktu (0,0).
+
+for wiersz in range(bok2):
+    for kolumna in range(bok2):
+        kwadrat(bok)
+        turtle.forward(bok)
+    turtle.backward(bok2 * bok)
+    turtle.left(90)
+    turtle.forward(bok)
+    turtle.right(90)
+
+turtle.update() # Pokazuje rysunek.
+turtle.mainloop() # Utrzymuje okno otwarte.
