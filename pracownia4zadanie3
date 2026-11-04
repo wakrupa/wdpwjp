@@ -2,6 +2,7 @@
 
 import random
 import time
+from collections import Counter
 
 def randperm(n):
     lista = list(range(n)) # list(range(n)) tworzy listę o n miejsch z kolejnymi liczbami od 0 do n-1.
@@ -10,17 +11,16 @@ def randperm(n):
         lista[i], lista[j] = lista[j], lista[i]
     return lista
 
+print("Kilka losowych permutacji z przedziału od 0 do 9:")
 for i in range(5):
-    print(randperm(10))
+    print(f"Permutacja {i + 1}: {randperm(10)}")
+print()
 
-
-
-
-
-
-
-
-
+print("Sprawdzenie równego prawdopodobieństwa na wylosowanie permutacji przez funkcję:")
+licznik = Counter(tuple(randperm(3)) for _ in range(60000)) # tuple(...) zamienia listę na krotkę (Counter potrzebuje elementów niezmiennych). Counter dostaje 60000 krotek i liczy, ile razy wystąpiła każda z nich. 
+for i, j in sorted(licznik.items()): # licznik.items() zwraca pary (np. (0, 1, 2), 9957). sorted(...) zwraca w kolejności rosnącej. 
+    print(f"Permutacja {i} wylosowała się {j} razy.")
+print()
 
 start = time.time() # time.time() zwraca aktualny czas systemowy.
 x = randperm(10 ** 6)
