@@ -1,0 +1,35 @@
+# PRACOWNIA 5 ZADANIE 1
+
+import statistics
+
+def F(n):
+    if n % 2 == 0:
+        return n / 2
+    else:
+        return 3 * n + 1
+
+def energia(n):
+    lista = []
+    lista.append(n)
+    aktualna = n
+    while aktualna != 1:
+        aktualna = F(aktualna)
+        lista.append(aktualna)
+    return len(lista) - 1
+    
+def analiza_collatza(a, b):
+    wszystkie_energie = []
+    for i in range(a, b + 1):
+        energia_liczby = energia(i)
+        wszystkie_energie.append(energia_liczby)
+    maksymalna_energia = max(wszystkie_energie)
+    print(f"Średnia energia liczb z przedziału od {a} do {b} włącznie to {sum(wszystkie_energie) / len(wszystkie_energie)}.")
+    print(f"Mediana energii z przedziału od {a} do {b} włącznie to {statistics.median(wszystkie_energie)}.")
+    print(f"Minimalna energia z przedziału od {a} do {b} włącznie to {min(wszystkie_energie)}.")
+    print(f"Maksymalna energia z przedziału od {a} do {b} włącznie to {max(wszystkie_energie)}.")
+    
+analiza_collatza(1, 10)
+print()
+analiza_collatza(50, 100)
+print()
+analiza_collatza(500, 1000)
