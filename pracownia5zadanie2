@@ -1,0 +1,36 @@
+# PRACOWNIA 5 ZADANIE 2
+
+import turtle
+import random
+
+def krzyzyk(n):
+    turtle.pendown()
+    for i in range(4):
+        turtle.forward(n)
+        turtle.left(90)
+        turtle.forward(n)
+        turtle.right(90)
+        turtle.forward(n)
+        turtle.left(90)
+
+def kolozkrzyzykow(n):
+    turtle.speed(10)
+    turtle.penup()
+    turtle.goto(15, 250)
+    r, g, b = 1, 1, 0
+    for i in range(n):
+        r = max(0, min(1, r + random.choice([-0.25, 0, 0.25]))) # max(0, ...) nie zabierze liczby mniejszej niż 0, min(1, ...) nie zabierze liczby mniejszej niż 1.
+        g = max(0, min(1, g + random.choice([-0.25, 0, 0.25])))
+        b = max(0, min(1, b + random.choice([-0.25, 0, 0.25])))
+        turtle.fillcolor(r, g, b)
+        turtle.begin_fill()
+        turtle.right(45)
+        krzyzyk(20)
+        turtle.left(45)
+        turtle.end_fill()
+        turtle.penup()
+        turtle.right(10)
+        turtle.forward(40)
+    turtle.done()
+
+kolozkrzyzykow(36)
