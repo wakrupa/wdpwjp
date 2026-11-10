@@ -19,7 +19,7 @@ def kolozkrzyzykow(n):
     turtle.goto(15, 250)
     r, g, b = 1, 1, 0
     for i in range(n):
-        r = max(0, min(1, r + random.choice([-0.25, 0, 0.25]))) # max(0, ...) nie zabierze liczby mniejszej niż 0, min(1, ...) nie zabierze liczby mniejszej niż 1.
+        r = max(0, min(1, r + random.choice([-0.25, 0, 0.25]))) # max(0, ...) nie zabierze liczby mniejszej niż 0, min(1, ...) nie zabierze liczby większej niż 1.
         g = max(0, min(1, g + random.choice([-0.25, 0, 0.25])))
         b = max(0, min(1, b + random.choice([-0.25, 0, 0.25])))
         turtle.fillcolor(r, g, b)
