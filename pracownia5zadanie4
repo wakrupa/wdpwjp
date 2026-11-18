@@ -1,0 +1,15 @@
+def usun_duplikaty(L):
+    pary = []
+    for i in range(len(L)):
+        pary.append((L[i], i))
+    pary.sort()
+    unikalne = []
+    for i in range(len(pary)):
+        wartosc, pozycja = pary[i]
+        if i == 0 or wartosc != pary[i - 1][0]:
+        unikalne.append((pozycja, wartosc))
+    unikalne.sort()
+    wynik = []
+    for pozycja, wartosc in unikalne:
+        wynik.append(wartosc)
+    return wynik
