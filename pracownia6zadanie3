@@ -1,0 +1,22 @@
+# PRACOWNIA 6 ZADANIE 3
+
+def czy_pierwsza(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+def dzielniki_pierwsze(n):
+    wynik = set()
+    for i in range(n + 1):
+        if czy_pierwsza(i) and n % i == 0:
+            wynik.add(i)
+    return wynik
+
+print(dzielniki_pierwsze(1111))
+print(dzielniki_pierwsze(2222))
+print(dzielniki_pierwsze(3333))
+print(dzielniki_pierwsze(4444))
+print(dzielniki_pierwsze(5555))
