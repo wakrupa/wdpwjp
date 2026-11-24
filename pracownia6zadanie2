@@ -1,0 +1,22 @@
+# PRACOWNIA 6 ZADANIE 2
+
+slowa = [
+    "rower", "wór", "miasto", "plaża", "torba", "długopis", "drzewo", "plecak", "drzwi", "wiatr",
+    "okno", "zeszyt", "sok", "ulica", "wieża", "zima", "gwiazda", "szkoła", "rotor", "kat",
+    "kot", "madam", "lampa", "port", "krzesło", "mat", "piasek", "trawa", "trop", "szpital",
+    "ogród", "pociąg", "herbata", "ściana", "góra", "mapa", "sklep", "potop", "telefon", "książka",
+    "stół", "zakaz", "lato", "bilet", "kawa", "jesień", "zakop", "rzeka", "kino", "wiosna",
+    "kajak", "morze", "piłka", "jezioro", "kwiat", "chleb", "most", "mleko", "kuchnia", "samolot",
+    "kurtka", "radar", "deszcz", "buty", "skok", "tak", "tam", "pokaz", "kazak", "muzyka",
+    "pokój", "koks", "statek", "rów", "kabak", "samochód", "jabłko", "kos", "zegar", "gazeta",
+    "księżyc", "zupa", "dom", "woda", "teatr", "autobus", "pies", "słońce", "droga", "śnieg",
+]
+
+def wzajemnie_odwrotne(s):
+    zbior = set(s)
+    for slowo in zbior:
+        odwrocone = slowo[::-1]
+        if odwrocone in zbior and odwrocone > slowo:
+            print(slowo, odwrocone)
+
+wzajemnie_odwrotne(slowa)
