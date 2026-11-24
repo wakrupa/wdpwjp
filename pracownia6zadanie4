@@ -1,0 +1,21 @@
+# PRACOWNIA 6 ZADANIE 4
+
+def podziel(s):
+    lista_slow = []
+    slowo = ""
+    for i in s:
+        if i == " ":
+            if slowo != "":
+                lista_slow.append(slowo)
+            slowo = ""
+        else: 
+            slowo += i
+    if slowo != "":
+        lista_slow.append(slowo)
+    return lista_slow
+
+print(podziel("   "))
+print(podziel("Ala"))
+print(podziel("Ala   "))
+print(podziel("Ala ma kota"))
+print(podziel("Ala   ma   kota"))
