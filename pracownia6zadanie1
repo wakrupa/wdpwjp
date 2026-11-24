@@ -60,3 +60,9 @@ def pola(cyfra, x, y):
             if cyfry[cyfra][i][j] == "#":
                 wynik.add((x + i, y + j))
     return wynik
+
+def mozna(cyfra, x, y, mozaika):
+    for pole in pola(cyfra, x, y):
+        if pole in mozaika:
+            return False
+    return True
