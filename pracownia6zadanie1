@@ -1,5 +1,13 @@
 # PRACOWNIA 6 ZADANIE 1
 
+import random
+import turtle
+
+rozmiar = 60
+bok = 6
+proby = 1200
+kolory = ["red", "green", "orange", "magenta", "cyan", "yellow", "pink"]
+
 cyfry = {
     0: [" ### ",
         "#   #",
@@ -66,3 +74,45 @@ def mozna(cyfra, x, y, mozaika):
         if pole in mozaika:
             return False
     return True
+    
+def poloz(cyfra, x, y, kolor, mozaika):
+    if mozna(cyfra, x, y, mozaika):
+        for pole in pola(cyfra, x, y):
+            mozaika[pole] = kolor
+
+def kolory_sasiadow(cyfra, x, y, mozaika):
+    wynik = set()
+    for a, b in pola(cyfra, x, y):
+        for sasiad in [(a - 1, b), (a + 1, b), (a, b - 1), (a, b + 1)]:
+            if sasiad in mozaika:
+                wynik.add(mozaika[sasiad])
+    return wynik
+
+def stworz_mozaike():
+    mozaika = {}
+    for _ in range(proby):
+        cyfra = random.randint(0, 9)
+        x = random.randint(0, rozmiar - 5)
+        y = random.randint(0, rozmiar - 5)
+        zakazane = kolory_sasiadow(cyfra, x, y, mozaika)
+        dozwolone = [k for k in kolory if k not in zakazane]
+        if dozwolone:
+            poloz(cyfra, x, y, random.choice(dozwolone), mozaika)
+    return mozaika
+
+def rysuj(mozaika):
+    t = turtle.Turtle()
+    turtle.tracer(0)
+    t.hideturtle()
+    t.penup()
+    t.shape("square")
+    t.shapesize(bok / 20)
+    for (a, b), kolor in mozaika.items():
+        t.color("black", kolor)
+        t.goto(-rozmiar * bok / 2 + a * bok + bok / 2,
+               rozmiar * bok / 2 - b * bok - bok / 2)
+        t.stamp()
+    turtle.update()
+    turtle.done()
+
+rysuj(stworz_mozaike())
